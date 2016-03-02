@@ -1,0 +1,11 @@
+[package]
+name = "passenger"
+version = "0.1.0"
+authors = ["Evgeny Rozaliev <rozaliev@gmail.com>"]
+
+[dependencies]
+
+[[bench]]
+
+name = "bench"
+path = "bench/bench.rs"
