@@ -10,11 +10,15 @@ exclude       = [
   ".gitignore",
   ".travis.yml",
   "bench/**/*",
+  ".criterion",
+  "benches.sh"
 ]
 
-[dependencies]
 
-[[bench]]
+[features]
+default = []
+benchmark = ["criterion"]
 
-name = "bench"
-path = "bench/bench.rs"
+[dependencies.criterion]
+git = "https://github.com/japaric/criterion.rs.git"
+optional = true
