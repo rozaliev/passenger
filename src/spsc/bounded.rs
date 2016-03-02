@@ -44,6 +44,10 @@ pub struct Receiver<T> {
 }
 
 
+impl<T> !Sync for Sender<T> {}
+impl<T> !Sync for Receiver<T> {}
+
+
 pub struct Core<T> {
     ptr: UnsafeCell<*mut T>,
 

@@ -1,4 +1,5 @@
-#![feature(alloc, oom, heap_api)]
+#![feature(alloc, oom, heap_api, optin_builtin_traits)]
+
 
 // TODO
 // mpsc
