@@ -2,16 +2,16 @@
 name = "passenger"
 license = "MIT"
 description = "collection of queues"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Evgeny Rozaliev <rozaliev@gmail.com>"]
 repository = "https://github.com/rozaliev/passenger"
 
 exclude       = [
   ".gitignore",
   ".travis.yml",
-  "bench/**/*",
   ".criterion",
-  "benches.sh"
+  "benches.sh",
+  "src/bin/**/*"
 ]
 
 
