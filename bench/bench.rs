@@ -5,7 +5,7 @@ extern crate test;
 extern crate passenger;
 use test::{Bencher, black_box};
 
-use std::sync::mpsc::{sync_channel, TryRecvError as StdTryRecvError};
+use std::sync::mpsc::sync_channel;
 use std::thread;
 
 use passenger::BoundedSpscQueue;
@@ -24,9 +24,7 @@ fn simple_std_thread(b: &mut Bencher) {
         }
     });
 
-    b.iter(|| {
-        black_box(receiver.recv());
-    });
+    b.iter(|| black_box(receiver.recv()));
 
 }
 
@@ -47,9 +45,7 @@ fn simple_bounded_spsc_thread(b: &mut Bencher) {
     });
 
 
-    b.iter(|| {
-        black_box(receiver.recv());
-    });
+    b.iter(|| black_box(receiver.recv()));
 
 }
 
@@ -74,8 +70,8 @@ fn simple_bounded_spsc(b: &mut Bencher) {
     let (mut sender, mut receiver) = BoundedSpscQueue::new(1000);
 
     b.iter(|| {
-        sender.send(0);
-        receiver.recv();
+        sender.send(0).unwrap();
+        receiver.recv().unwrap();
     });
 
 
