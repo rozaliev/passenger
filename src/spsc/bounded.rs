@@ -94,6 +94,10 @@ impl<T> Sender<T> {
 
                 if next_head != self.tail {
                     break;
+                } else {
+                    if self.core.dropped.load(Ordering::Relaxed) {
+                        return Err(SendError(el));
+                    }
                 }
             }
 
